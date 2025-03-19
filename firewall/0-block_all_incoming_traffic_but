@@ -1,4 +1,4 @@
-# Update package list and install UFW
+# Update package list and install UFW if not already installed
 sudo apt update
 sudo apt install ufw
 
@@ -14,8 +14,9 @@ sudo ufw allow 80/tcp   # Allow HTTP
 # Enable UFW
 sudo ufw enable
 
-# Enable logging to see dropped packets
+# Enable UFW logging to see dropped packets
 sudo ufw logging on
 
-# Check UFW status and verify rules
-sudo ufw status verbose
+# Open the UFW configuration file to modify default behavior
+sudo nano /etc/ufw/before.rules
+
