@@ -1,9 +1,21 @@
+# Update package list and install UFW
 sudo apt update
 sudo apt install ufw
+
+# Set default policies: Deny incoming, allow outgoing
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+
+# Allow specific ports (SSH, HTTP, HTTPS)
 sudo ufw allow 22/tcp   # Allow SSH
 sudo ufw allow 443/tcp  # Allow HTTPS
 sudo ufw allow 80/tcp   # Allow HTTP
+
+# Enable UFW
 sudo ufw enable
-sudo ufw status
+
+# Enable logging to see dropped packets
+sudo ufw logging on
+
+# Check UFW status and verify rules
+sudo ufw status verbose
