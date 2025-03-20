@@ -15,8 +15,8 @@ echo "Creating load balancer configuration..."
 sudo tee /etc/nginx/sites-available/load_balancer << 'EOC'
 upstream backend {
     # Replace these with your actual web server IPs
-    server 54.85.174.255 weight=1;  # web-01
-    server 44.201.232.242 weight=1;  # web-02
+    server 6495-web-01 54.85.174.255:80 check;  # web-01
+   server 6495-web-02 44.201.232.242:80 check;  # web-02
 }
 
 server {
