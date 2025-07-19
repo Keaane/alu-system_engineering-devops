@@ -15,17 +15,17 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
 # sudo truncate -s 0 /etc/haproxy/haproxy.cfg
 
 # Check if the configuration for frontend and backend exists
-if ! grep -q "frontend gajukeane-frontend" /etc/haproxy/haproxy.cfg; then
+if ! grep -q "frontend tresorshingiro-frontend" /etc/haproxy/haproxy.cfg; then
     # Add frontend and backend configuration
-    server_config="frontend gajukeane-frontend
+    server_config="frontend tresorshingiro-frontend
         bind *:80
         mode http
-        default_backend gajukeane-backend
+        default_backend tresorshingiro-backend
 
-    backend gajukeane-backend
+    backend tresorshingiro-backend
         balance roundrobin
-        server 6495-web-01 54.85.174.255:80 check
-        server 6495-web-02 44.201.232.242:80 check"
+        server 6310-web-01 44.212.13.205:80 check
+        server 6310-web-02 52.205.253.31:80 check"
     
     # Append the configuration to haproxy.cfg
     echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
